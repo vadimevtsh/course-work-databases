@@ -2,8 +2,8 @@ import redis
 import hashlib
 
 class MyRedis:
-	def __init__(self, host_name="localhost", port=6379, db=0)
-	self.r = redis.Redis(host_name, port, db)
+	def __init__(self, host_name="localhost", port=6379, db=0):
+		self.r = redis.Redis(host_name, port, db)
 
 	def update_token(login, password): # update user login info in the cache
 		timestamp = time.time()
@@ -17,3 +17,6 @@ class MyRedis:
 	def hash_password(password): # hash user password using SHA-256 hashing algorithm
 		hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
 		return hashed_password
+
+if __name__=="__main__":
+	myRedis = MyRedis()
