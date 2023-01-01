@@ -8,14 +8,14 @@ class MyRedis:
 
 	def update_token(self, login, password): # update user login info in the cache
 		timestamp = time.time()
-		self.r.set('login:', login, password, ex=60*60*24)
+		time_to_live = 60 * 60 * 24
+		self.r.setex(login, time_to_live, password)
 
 
 	def check_token(self, login):
-		return self.r.get('login:', login) # fetch and return a given user, if available
+		return self.r.get(login) # fetch and return a given user, if available
 
 	def hash_password(self, password): # hash user password using SHA-256 hashing algorithm
 		hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
 		return hashed_password
-
 
