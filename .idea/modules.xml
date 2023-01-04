@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/courseWorkDB.iml" filepath="$PROJECT_DIR$/.idea/courseWorkDB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/course-work-databases.iml" filepath="$PROJECT_DIR$/.idea/course-work-databases.iml" />
     </modules>
   </component>
 </project>
