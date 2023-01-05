@@ -24,6 +24,3 @@ class MyRedis:
 		keys = []
 		server_return = self.r.scan(cursor)
 		print(server_return)
-
-
-
