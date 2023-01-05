@@ -19,3 +19,11 @@ class MyRedis:
 		hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
 		return hashed_password
 
+	def get_all_entries(self): # not really implemented
+		cursor = 0
+		keys = []
+		server_return = self.r.scan(cursor)
+		print(server_return)
+
+
+
