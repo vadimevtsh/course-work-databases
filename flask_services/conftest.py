@@ -1,6 +1,7 @@
 import os
 import tempfile
 
+# lib for tests
 import pytest
 
 # import the modules to test in here
@@ -37,17 +38,20 @@ def client(app):
 def runner(app):
 	return app.test_cli_runner()
 
+# client init
 class AuthActions(object):
 	def __init__(self, client):
 		self._client = client
 
+# method for login
 	def login(self, username="test", password="test"):
 		return self._client.post("/auth/login", data={"username": username, "password": password})
 	
-
+# method for logout
 	def logout(self):
 		return self._client.get("/auth/logout")
 
+# method for authentication
 @pytest.fixture
 def auth(client):
 	return AuthActions(client)
