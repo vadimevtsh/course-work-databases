@@ -6,7 +6,7 @@ from flask import session
 # import get application database
 
 """ Testing that viewing the page renders without template errors"""
-def test_register(client, app):
+def testRegister(client, app):
 	assert client.get("/register").status_code == 200
 
 	# testing that successful registration redirects to the login page
@@ -31,14 +31,14 @@ def test_register(client, app):
 )
 
 # method for checking validate input in register
-def test_register_validate_input(client, username, password, message):
+def testRegisterValidateInput(client, username, password, message):
 	response = client.post(
 		"/register", data={"username": username, "password": password}
 	)
 	assert message in response.data
 
 # method for testing login
-def test_login(client, auth):
+def testLogin(client, auth):
 	# test whether viewing the page renders without any errors
 	assert client.get("/login").status_code == 200
 
@@ -59,12 +59,12 @@ def test_login(client, auth):
 )
 
 # method for checking validate input in login
-def test_login_validate_input(auth, username, password, message):
+def testLoginValidateInput(auth, username, password, message):
 	response = auth.login(username, password)
 	assert message in response.data
 
 # method for checking logout
-def test_logout(client, auth):
+def testLogout(client, auth):
 	auth.login()
 
 	with client:
